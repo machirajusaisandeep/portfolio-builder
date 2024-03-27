@@ -1,11 +1,15 @@
+import BuilderConfigTemplate from "@/constants/BuilderConfigTemplate";
 import { useState, createContext, useContext } from "react";
 const BuilderContext = createContext();
 
 function BuilderProvider({ children }) {
   const [isEditorMode, setIsEditorMode] = useState();
+  const [builderConfig, setBuilderConfig] = useState(BuilderConfigTemplate);
 
   return (
-    <BuilderContext.Provider value={{ isEditorMode, setIsEditorMode }}>
+    <BuilderContext.Provider
+      value={{ isEditorMode, setIsEditorMode, builderConfig, setBuilderConfig }}
+    >
       {children}
     </BuilderContext.Provider>
   );

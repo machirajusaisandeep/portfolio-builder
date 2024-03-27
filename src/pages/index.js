@@ -2,10 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Intro from "@/components/Intro";
+import SectionRenderer from "@/components/SectionRenderer";
+import { useUserContext } from "@/context/builderContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { builderConfig } = useUserContext();
+
   return (
     <>
       <Head>
@@ -16,6 +20,9 @@ export default function Home() {
       </Head>
       <main className={`${inter.className}`}>
         <Intro />
+        {builderConfig?.sections?.map((section) => {
+          return <SectionRenderer {...section} key={section.sectionKey} />;
+        })}
       </main>
     </>
   );
