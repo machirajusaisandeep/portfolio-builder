@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Intro from "@/components/Intro";
+import Intro from "@/components/Sections/Intro";
 import SectionRenderer from "@/components/SectionRenderer";
 import { useUserContext } from "@/context/builderContext";
 import { SectionSpacer } from "@/styles/atoms/Layout";
 import styled from "styled-components";
+import AddSection from "@/components/AddSection/AddSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function Home() {
         <SectionWrapper>
           <LeftSpace></LeftSpace>
           <Sections>
+            <AddSection />
             {builderConfig?.sections?.map((section) => {
               return (
                 <>
@@ -50,9 +52,11 @@ const SectionWrapper = styled.section`
 
 const LeftSpace = styled.div`
   width: 50%;
+  height: 100%;
   background-color: green;
 `;
 
 const Sections = styled.div`
   width: 50%;
+  height: 100%;
 `;

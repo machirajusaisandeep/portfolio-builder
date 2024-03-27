@@ -1,8 +1,8 @@
-import About from "@/components/About";
-import SkillSet from "@/components/SkillSet";
-import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
-import Contact from "@/components/Contact";
+import About from "@/components/Sections/About";
+import SkillSet from "@/components/Sections/SkillSet";
+import Projects from "@/components/Sections/Projects";
+import Experience from "@/components/Sections/Experience";
+import Contact from "@/components/Sections/Contact";
 import { Heading2 } from "@/styles/atoms/Typography";
 import { SectionTitleMap } from "@/constants/SectionConfig";
 
