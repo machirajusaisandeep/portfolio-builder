@@ -11,8 +11,10 @@ const Heading1 = styled.h1`
 const Heading2 = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
+  margin-bottom: 1.5rem;
   @media (min-width: ${BreakPoints.mac}) {
     font-size: 2rem;
+    margin-bottom: 3rem;
   }
 `;
 const Heading3 = styled.h3``;

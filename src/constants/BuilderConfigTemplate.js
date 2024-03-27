@@ -1,9 +1,4 @@
 const BuilderConfigTemplate = {
-  sections: [
-    {
-      sectionTitle: "About Us",
-      sectionKey: "about",
-    },
-  ],
+  sections: [],
 };
 export default BuilderConfigTemplate;

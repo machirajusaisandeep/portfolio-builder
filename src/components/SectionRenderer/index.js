@@ -3,7 +3,10 @@ import SkillSet from "@/components/SkillSet";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
-export default function SectionRenderer({ sectionTitle, sectionKey }) {
+import { Heading2 } from "@/styles/atoms/Typography";
+import { SectionTitleMap } from "@/constants/SectionConfig";
+
+export default function SectionRenderer({ sectionKey }) {
   const saveChanges = () => {};
 
   const editSection = () => {};
@@ -27,5 +30,12 @@ export default function SectionRenderer({ sectionTitle, sectionKey }) {
     }
   };
 
-  return <div>{renderSections()}</div>;
+  return (
+    <div>
+      <div>
+        <Heading2>{SectionTitleMap[sectionKey]}</Heading2>
+        {renderSections()}
+      </div>
+    </div>
+  );
 }

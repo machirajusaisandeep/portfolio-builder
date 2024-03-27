@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Intro from "@/components/Intro";
 import SectionRenderer from "@/components/SectionRenderer";
 import { useUserContext } from "@/context/builderContext";
+import { SectionSpacer } from "@/styles/atoms/Layout";
+import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +22,37 @@ export default function Home() {
       </Head>
       <main className={`${inter.className}`}>
         <Intro />
-        {builderConfig?.sections?.map((section) => {
-          return <SectionRenderer {...section} key={section.sectionKey} />;
-        })}
+        <SectionWrapper>
+          <LeftSpace></LeftSpace>
+          <Sections>
+            {builderConfig?.sections?.map((section) => {
+              return (
+                <>
+                  <SectionRenderer {...section} key={section.sectionKey} />
+                  <SectionSpacer />
+                </>
+              );
+            })}
+          </Sections>
+        </SectionWrapper>
       </main>
     </>
   );
 }
+
+//styles
+
+const SectionWrapper = styled.section`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+`;
+
+const LeftSpace = styled.div`
+  width: 50%;
+  background-color: green;
+`;
+
+const Sections = styled.div`
+  width: 50%;
+`;

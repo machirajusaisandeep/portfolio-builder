@@ -11,4 +11,8 @@ const TwoColumnGrid = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-export { Stack, TwoColumnGrid };
+const SectionSpacer = styled.div`
+  padding: 90px 0;
+`;
+
+export { Stack, TwoColumnGrid, SectionSpacer };
