@@ -27,10 +27,10 @@ export default function Home() {
           <LeftSpace></LeftSpace>
           <Sections>
             <AddSection />
-            {builderConfig?.sections?.map((section) => {
+            {builderConfig?.sections?.map((sectionKey) => {
               return (
                 <>
-                  <SectionRenderer {...section} key={section.sectionKey} />
+                  <SectionRenderer sectionKey={sectionKey} key={sectionKey} />
                   <SectionSpacer />
                 </>
               );

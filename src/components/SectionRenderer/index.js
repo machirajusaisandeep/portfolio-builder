@@ -33,7 +33,7 @@ export default function SectionRenderer({ sectionKey }) {
   return (
     <div>
       <div>
-        <Heading2>{SectionTitleMap[sectionKey]}</Heading2>
+        <Heading2>{SectionTitleMap[sectionKey].title}</Heading2>
         {renderSections()}
       </div>
     </div>
