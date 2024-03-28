@@ -14,19 +14,24 @@ export default function RichTextEditor({ value, setValue, isDevMode }) {
       console.log(sanitizedContent);
     }
   };
+
+  const handleInit = (evt, editor) => (editorRef.current = editor);
+  const handleUpdate = (newValue, editor) => {
+    setValue({
+      html: SanitizeHtml(newValue),
+      text: editor.getContent({ format: "text" }),
+    });
+  };
+
   return (
     <div>
       <Editor
-        onInit={(evt, editor) => (editorRef.current = editor)}
+        onInit={handleInit}
         apiKey={TINY_MCE_API_KEY}
         init={EditorInitialConfig}
         initialValue={value}
-        onEditorChange={(newValue, editor) => {
-          setValue({
-            html: SanitizeHtml(newValue),
-            text: editor.getContent({ format: "text" }),
-          });
-        }}
+        onEditorChange={handleUpdate}
+        inline
       />
       {isDevMode ? <button onClick={log}>Log editor content</button> : null}
     </div>

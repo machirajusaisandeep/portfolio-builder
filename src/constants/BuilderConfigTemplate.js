@@ -1,5 +1,5 @@
 const BuilderConfigTemplate = {
-  sections: ["about"],
+  sections: [],
   content: {},
 };
 export default BuilderConfigTemplate;

@@ -1,24 +1,30 @@
+const Sections = ["about", "projects", "experience", "resources", "contact"];
+
 const SectionTitleMap = {
   about: {
     title: "About Us",
-    emoji: "",
+    emoji: "📌",
   },
   projects: {
     title: "Projects",
-    emoji: "",
+    emoji: "🛠️",
   },
   experience: {
     title: "Experience",
-    emoji: "",
+    emoji: "🌐",
   },
   resources: {
     title: "Resources",
-    emoji: "",
+    emoji: "💡",
   },
   contact: {
     title: "Lets Connect",
-    emoji: "",
+    emoji: "🔗",
   },
 };
 
-export { SectionTitleMap };
+const sectionYetToAdd = (current) => {
+  return Sections.filter((x) => !current.includes(x));
+};
+
+export { Sections, SectionTitleMap, sectionYetToAdd };

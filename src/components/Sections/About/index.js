@@ -17,7 +17,7 @@ export default function About() {
   return (
     <div>
       <RichTextEditor value={content.html} setValue={setContent} />
-      <div dangerouslySetInnerHTML={{ __html: content.html }}></div>
+      {/* <div dangerouslySetInnerHTML={{ __html: content.html }}></div> */}
     </div>
   );
 }

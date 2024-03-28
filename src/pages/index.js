@@ -1,18 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import Intro from "@/components/Sections/Intro";
-import SectionRenderer from "@/components/SectionRenderer";
-import { useUserContext } from "@/context/builderContext";
-import { SectionSpacer } from "@/styles/atoms/Layout";
 import styled from "styled-components";
-import AddSection from "@/components/AddSection/AddSection";
+import Sections from "@/components/Sections";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const { builderConfig } = useUserContext();
-
   return (
     <>
       <Head>
@@ -25,17 +19,9 @@ export default function Home() {
         <Intro />
         <SectionWrapper>
           <LeftSpace></LeftSpace>
-          <Sections>
-            <AddSection />
-            {builderConfig?.sections?.map((sectionKey) => {
-              return (
-                <>
-                  <SectionRenderer sectionKey={sectionKey} key={sectionKey} />
-                  <SectionSpacer />
-                </>
-              );
-            })}
-          </Sections>
+          <SectionStack>
+            <Sections />
+          </SectionStack>
         </SectionWrapper>
       </main>
     </>
@@ -48,15 +34,14 @@ const SectionWrapper = styled.section`
   display: flex;
   width: 100%;
   height: 100vh;
+  gap: 2rem;
 `;
 
 const LeftSpace = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
-  background-color: green;
 `;
 
-const Sections = styled.div`
-  width: 50%;
+const SectionStack = styled.div`
   height: 100%;
 `;
